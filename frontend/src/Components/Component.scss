@@ -1,0 +1,322 @@
+//navbar
+
+.navbar {
+  height: 57px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 10;
+  &:hover {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  > .logo {
+    display: flex;
+    align-items: center;
+    > h2 {
+      color: red;
+    }
+    > div {
+      > svg {
+        color: rgb(133, 133, 95);
+        font-size: larger;
+      }
+    }
+  }
+
+  > .links {
+    > a {
+      color: black;
+      margin: 0 15px;
+      font-size: 16;
+      font-weight: 300;
+    }
+  }
+
+  > .auth {
+    display: flex;
+    align-items: center;
+    > .ls {
+      margin: 0 10px;
+      font-size: small;
+    }
+    > .signup {
+      background-color: black;
+      color: white;
+      padding: 8px 15px;
+      > a {
+        color: white;
+      }
+    }
+  }
+}
+
+//Book
+
+.bookBody {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 57px;
+  width: 100%;
+  z-index: 20;
+  background-color: white;
+  > .container {
+    width: 82%;
+    height: 153px;
+
+    > .links {
+      margin: 10px 0;
+      border-bottom: 1px solid black;
+      display: flex;
+      align-items: center;
+      font-weight: bolder;
+
+      > a {
+        margin: 10px 0px;
+        font-size: 13px;
+        margin-right: 50px;
+      }
+    }
+    > .mainBook {
+      display: flex;
+      justify-content: flex-start;
+      overflow-x: scroll;
+
+      > .fromto {
+        display: flex;
+        align-items: center;
+
+        margin: 20px 0;
+
+        > select {
+          font-size: 30px;
+          font-weight: bold;
+          border: none;
+          font-family: "Times New Roman", Times, serif;
+          cursor: pointer;
+
+          padding: 10px 0px;
+
+          &:focus {
+            outline: none;
+          }
+        }
+        > button {
+          border: none;
+          background-color: white;
+
+          > svg {
+            margin: 0 15px;
+            font-size: x-large;
+            color: red;
+          }
+        }
+      }
+      > .options {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        > .tripType {
+          padding: 10px 20px;
+          border-right: 1px solid black;
+          font-size: large;
+          display: flex;
+          flex-direction: column;
+
+          gap: 10px;
+          > select {
+            border: none;
+            font-size: large;
+            font-family: serif;
+            font-weight: 700;
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+
+        > .dates {
+          display: flex;
+
+          > .dr {
+            padding: 10px 20px;
+            font-size: large;
+            > input {
+              height: 30px;
+              margin: 6px 0;
+            }
+          }
+        }
+        > .boundry {
+          background-color: red;
+          height: 45px;
+          border-right: 1px solid black;
+        }
+        > .passenger {
+          display: flex;
+          flex-direction: column;
+          font-size: larger;
+          padding: 0px 20px;
+
+          width: 20%;
+
+          > p {
+            margin-bottom: 15px;
+          }
+          > .selects {
+            display: flex;
+            justify-content: space-between;
+
+            > h5 {
+              display: flex;
+              gap: 5px;
+              align-items: center;
+            }
+            > button {
+              border: none;
+              background-color: white;
+              > svg {
+                font-size: x-large;
+              }
+            }
+          }
+        }
+        > button {
+          height: 40px;
+          width: 150px;
+          background-color: #f54f4f;
+          color: white;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+//manage Booking
+
+.popup {
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  height: 9vh;
+  display: flex;
+  justify-content: center;
+
+  top: 120px;
+  > .popupContent {
+    width: 82%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    > input {
+      height: 50px;
+      width: 400px;
+      padding: 0 20px;
+      font-size: 1rem;
+    }
+    > button {
+      height: 50px;
+      width: 150px;
+      background-color: #f54f4f;
+      color: white;
+      border: none;
+    }
+  }
+}
+
+// prepare to travel
+
+.pttBody {
+  height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  > .description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    > h1 {
+      color: #000572;
+      font-size: 3rem;
+    }
+    > p {
+      margin-top: 30px;
+    }
+  }
+
+  > .images {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+}
+
+.psgoptions {
+  height: 200px;
+  width: 200px;
+  background-color: white;
+
+  position: absolute;
+  top: 152px;
+  box-shadow: 1px 0.6px 2.2px rgba(0, 0, 0, 0.022),
+    2.6px 1.6px 5.6px rgba(0, 0, 0, 0.031),
+    5.3px 3.2px 11.5px rgba(0, 0, 0, 0.039),
+    11px 6.6px 23.7px rgba(0, 0, 0, 0.048), 30px 18px 65px rgba(0, 0, 0, 0.07);
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  > .adult {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > .first {
+      display: flex;
+      flex-direction: column;
+      > p {
+        font-size: small;
+      }
+    }
+
+    > .feature {
+      display: flex;
+      > button {
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        border: none;
+        background-color: red;
+        color: white;
+      }
+      > p {
+        padding: 0 10px;
+      }
+    }
+  }
+}
+
+
+.logout{
+  >button{
+  padding: 7px 20px;
+  background-color: black;
+  color: white;
+  }
+}

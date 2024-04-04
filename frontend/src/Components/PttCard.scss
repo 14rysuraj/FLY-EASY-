@@ -1,0 +1,31 @@
+.pttCard {
+  > .img {
+    height: 600px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+
+    > .bgimg {
+      height: 90%;
+
+      > img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    > .desc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      height: 30%;
+      > h5 {
+        text-align: center;
+        color: #c00505;
+        margin: 20px 0;
+      }
+    }
+  }
+}

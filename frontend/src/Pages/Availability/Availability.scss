@@ -1,0 +1,212 @@
+.availabilityBody {
+  margin-top: 57px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > .header {
+    height: 200px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    > .first {
+      display: flex;
+      align-items: center;
+
+      > .logo {
+        display: flex;
+        margin: 0 40px;
+        align-items: center;
+        > svg {
+          color: red;
+        }
+        > p {
+          padding: 0 20px;
+        }
+      }
+    }
+
+    > button {
+      border: none;
+      background-color: red;
+      padding: 10px 20px;
+      color: white;
+    }
+  }
+
+  > .result {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+
+    > .numOfFlight {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      background-color: rgb(223, 216, 216);
+    }
+    > .flights {
+      margin-top: 40px;
+      background-color: rgb(223, 216, 216);
+      display: flex;
+
+      > .first {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+
+        > p {
+          border-bottom: 1px solid white;
+          padding: 10px 20px;
+        }
+        > .info {
+          margin: 10px 0;
+          gap: 40px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+
+          > .logos {
+            display: flex;
+            align-items: center;
+            margin: 0 40px;
+          }
+        }
+      }
+
+      > .second {
+        width: 50%;
+        padding: 10px 20px;
+        background-color: rgb(215, 68, 68);
+        color: rgb(247, 247, 250);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        > .first {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          > button {
+            border: none;
+            padding: 10px 20px;
+          }
+        }
+      }
+    }
+  }
+
+  > .showpassengers {
+    display: flex;
+    width: 70%;
+    > .container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      > .heading {
+        display: flex;
+        justify-content: space-between;
+        > button {
+          border: none;
+          padding: 10px 20px;
+        }
+        > h2 {
+          color: red;
+        }
+      }
+
+      > .passengerInfo {
+        display: flex;
+        flex-wrap: wrap;
+
+        margin: 50px 0;
+        gap: 40px;
+
+        > select {
+          height: 35px;
+          width: 80px;
+          &:focus {
+            outline: none;
+          }
+        }
+        > input {
+          width: 400px;
+          height: 35px;
+          padding: 0 20px;
+        }
+      }
+
+      > .pay {
+        > button {
+          border: none;
+          padding: 10px 20px;
+          background-color: rgb(54, 109, 203);
+          color: white;
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+}
+
+.showModifyOpt {
+  background-color: white;
+  width: 70%;
+  margin: 60px 0;
+
+  > .inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 31px;
+    justify-content: flex-start;
+    margin: 50px 0px;
+    > select {
+      height: 35px;
+      width: 25%;
+      padding: 0 20px;
+      min-width: 200px;
+    }
+    > input {
+      height: 35px;
+      width: 25%;
+      padding: 0 20px;
+      min-width: 200px;
+    }
+    > select {
+      height: 35px;
+    }
+  }
+  > .buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 20px;
+    > button {
+      border: none;
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+    }
+  }
+}
+.a {
+  > p {
+    padding: 10px 0px;
+  }
+  > h3 {
+    padding: 10px 0;
+  }
+}

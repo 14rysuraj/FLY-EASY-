@@ -8,8 +8,6 @@ import Aboutus from "./Pages/Aboutus/Aboutus";
 import WhereWeFly from "./Pages/WhereWeFly/WhereWeFly";
 import MyTicket from "./Pages/MyTicket/MyTicket";
 import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
-import AllPosts from "./Pages/Posts/AllPosts";
-import YourPosts from "./Pages/Posts/YourPosts";
 import Login from "./Pages/Auth/Login";
 import Signup from "./Pages/Auth/Signup";
 import "./index.css";
@@ -18,10 +16,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { context } from "./main";
 import { useCookies } from "react-cookie";
+import Footer from "./Components/Footer";
+import Payment from "./Pages/Payment/Payment";
+import PopupLogin from "./Components/PopupLogin";
 
 const App = () => {
 
-  const { setIsAuthenticated } = useContext(context);
+  const {isAuthenticated, setIsAuthenticated } = useContext(context);
   const [cookie, setCookies] = useCookies("token");
 
 
@@ -48,15 +49,15 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/blog" element={<Blog />}>
-              <Route path="/blog" element={<AllPosts />} />
-              <Route path="/blog/:id" element={<YourPosts />} />
             </Route>
-
+  
             <Route path="/about-us" element={<Aboutus />} />
             <Route path="/where-we-fly" element={<WhereWeFly />} />
-            <Route path="/my-ticket" element={<MyTicket />} />
+            <Route path="/my-ticket" element={ isAuthenticated ?<MyTicket />:<PopupLogin/>} />
             <Route path="/availability" element={<Availability />} />
+            <Route path="/availability/payment" element={<Payment/> }  />
           </Routes>
+          <Footer/>
         </BrowserRouter>
       </PrimeReactProvider>
       <ToastContainer />

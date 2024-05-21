@@ -1,0 +1,211 @@
+.paymentBody{
+    height: 80vh;
+    margin-top:90px;
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+flex-direction: column;
+overflow-y: scroll;
+
+    >.container{
+background-color: white;
+width: 70%;
+padding: 10px 30px;
+margin-top: 100px;
+
+
+>.heading{
+
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+>.infos{
+display: flex;
+flex-direction: column;
+
+
+>p{
+    padding: 10px 0;
+}
+
+>h4{
+
+    >button{
+    color: red;
+    padding: 10px 0;
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+    }
+}
+
+
+
+
+}
+
+
+    }
+
+
+    >.policy{
+        position:absolute;
+        background-color:rgba(247, 247, 247,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        
+
+
+        >.container{
+width: 80%;
+background-color: rgba(238, 238, 238,0.6);
+height: 70vh;
+
+
+>.heading{
+display: flex;
+justify-content: space-between;
+height: 60px;
+display: flex;
+align-items: center;
+background-color: rgb(198, 42, 42);
+padding: 0 20px;
+
+>h2{
+  color:white;
+}
+>button{
+background-color: rgb(198, 42, 42);
+border: none;
+
+   
+ >svg{
+    font-size: xx-large;
+    color: white;
+ }
+}
+
+
+}
+
+
+>.prohibitedItems{
+
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+background-color: white;
+height: 100%;
+
+
+
+   >.container{
+    width: 80%;
+    border: 1px solid rgb(137, 120, 120);
+padding: 10px 20px;
+
+>h2{
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+}
+
+
+>.items{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    >p{
+        padding: 10px 0px;
+        padding-right: 20px;
+        font-size: larger;
+    }
+}
+
+
+
+
+
+   }
+}
+
+
+        }
+    
+     
+    
+    
+    }
+
+
+
+
+
+    >.payment{
+
+
+        width: 100%;
+        margin: 70px 0;
+
+        >h2{
+            padding: 20px;
+            background-color: rgb(236, 236, 236);
+        }
+
+
+
+        >.services{
+            display: flex;
+            flex-wrap: wrap;
+
+
+            >a{
+            >.paymentlink{
+              
+                height: 100px;
+                width: 100px;
+                background-position: center;
+                background-size: cover;
+                background-color: red;
+                margin: 40px;
+
+            }
+
+            >.esewa{
+                background-image: url(../../assets/unnamed.png);
+            }
+
+            >.khalti{
+                background-image: url(../../assets/khalti.jpeg.crdownload);
+                
+            }
+            }
+            
+
+        }
+
+        >.book{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+
+        >button{
+            border: none;
+            background-color: rgb(219, 79, 79);
+            color:white;
+            padding: 20px 40px;
+
+        }
+    }
+}
+
+}

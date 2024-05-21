@@ -32,10 +32,28 @@
 
   > .links {
     > a {
+      padding: 7px 0;
       color: black;
       margin: 0 15px;
       font-size: 16;
       font-weight: 300;
+      position: relative; /* Required for absolute positioning of pseudo-element */
+  text-decoration: none; 
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -2px; /* Position it just below the text */
+        left: 0;
+        width: 0; /* Initially invisible */
+        height: 2px; /* Height of the underline */
+        background-color: green; /* Color of the underline */
+        transition: width 0.5s ease; /* Smooth transition for width change */
+      }
+    
+      &:hover::before {
+        width: 100%; /* Fill the underline on hover */
+      }
     }
   }
 
@@ -315,8 +333,10 @@
 
 .logout{
   >button{
-  padding: 7px 20px;
-  background-color: black;
+
   color: white;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
   }
 }

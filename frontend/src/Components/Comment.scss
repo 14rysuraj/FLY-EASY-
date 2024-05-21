@@ -1,33 +1,23 @@
-.userComment{
-    margin: 60px 0;
 
-    >div{
-        display: flex;
-        align-items: center;
-        margin: 10px 20px;
-        >.avator{
-             height: 25px;
-             width: 25px;
-             border-radius: 50%;
-             margin: 0 10px;
-             background-image: url(../assets/avatar.jpeg);
-             background-position: center;
-             background-size: cover;
- 
-        }
+.commentBody{
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    margin-left: 400px;
+    align-items: center;
+    width: calc(100% - 400px);
+    justify-content: center;
+background-color:white;
+
+    @media only screen and (max-width: 900px) {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      >.comments{
+        width: 80%;
+        background-color: rgba(168, 118, 118,0.5);
+        height: 60%;
+      }
+
     }
-    >.desc{
-        display: flex;
-        justify-content: space-between;
-       padding: 0 45px;
-       >button{
-        border: none;
-       }
-    }
-    >.view{
-        padding: 0 45px;
-        >svg{
-           font-size: larger;
-        }
-    }
-}

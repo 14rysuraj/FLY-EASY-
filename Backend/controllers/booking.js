@@ -16,13 +16,13 @@ export const bookFlight = async (req, res) => {
         if (!flight) {
             return res.status(400).json({
                 success: false,
-                error: "Flight not found",
+                message: "Flight not found",
             });
         }
         if (flight.seatsAvailable < seatsBooked) {
             return res.status(400).json({
                 success: false,
-                error: "No seats available",
+               message: "No seats available",
             });
         }
 
@@ -49,7 +49,8 @@ export const bookFlight = async (req, res) => {
         await flight.save();
         res.status(201).json({
             success: true,
-           booking,
+            booking,
+           message:"Booked successfully"
         });
 
 

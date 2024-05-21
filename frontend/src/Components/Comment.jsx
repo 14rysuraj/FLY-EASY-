@@ -1,25 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Comment.scss"
-import { FcLikePlaceholder } from "react-icons/fc";
-import { RxDividerHorizontal } from "react-icons/rx";
+import { CiHeart } from "react-icons/ci";
+import { FcLike } from "react-icons/fc";
+import { FaRegCommentDots } from "react-icons/fa6";
 
-const Comment = () => {
+const Comment = ({}) => {
+    const [commentlike, setCommentLike] = useState(false);
+  
   return (
-      <div className='userComment'>
-          <div>
-              <div className="avator"></div>
-              <h4>Suraj Chaudhary</h4>
-          </div>
-          <div className='desc'>
-              <p>Can you give me your number</p>
-              <button>    <FcLikePlaceholder /> 10likes</button>
-          </div>
-          <div className="view">
-              <RxDividerHorizontal />
-              <p>View 5 replies</p>
-
-          </div>
-     
+      <div className='commentBody'>
+          
+          <div className="comments">
+              sddsd
+       </div>
+          
+            
     </div>
   )
 }

@@ -6,6 +6,7 @@ import flightRoutes from "./routes/flight.js"
 import userRoutes from "./routes/user.js"
 import bookRoutes from "./routes/booking.js";
 import cookieParser from 'cookie-parser';
+import postRoutes from './routes/post.js';
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use(cookieParser());
 app.use('/api/flights', flightRoutes);
 app.use('/api/user', userRoutes)
 app.use('/api', bookRoutes);
+app.use('/api/post',postRoutes)
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);

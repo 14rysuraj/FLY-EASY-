@@ -1,0 +1,144 @@
+.MyTicketBody {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  background-image: url(../../assets/aerobg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow-y: scroll;
+
+  > .heroSection {
+    width: 90%;
+    margin-top: 20px;
+    background-color: white;
+
+    > .ticket {
+      width: 100%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(238, 234, 234);
+      margin: 20px 0;
+      padding: 20px 10px;
+      flex-wrap: wrap;
+
+      > button {
+        background-color: rgb(160, 78, 78);
+        color: white;
+        padding: 8px 20px;
+        border: none;
+      }
+    }
+  }
+}
+
+.ticket-detail {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100%;
+  background-color: rgba(230, 217, 217, 0.9);
+
+  background-image: url(../../assets/aerobg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+
+  > button {
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: xx-large;
+    border: none;
+    background-color: rgba(230, 217, 217, 0);
+    margin-top: 10px;
+  }
+
+  > .container {
+    width: 60%;
+    background-color: white;
+    height: 760px;
+    margin-top: 60px;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+
+
+    > .heading {
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      > h2 {
+        width: 100%;
+        border-bottom: 1px solid black;
+        text-align: center;
+        padding: 20px 0;
+      }
+    }
+
+    > .flightDetails {
+      display: flex;
+      flex-direction: column;
+      margin: 10px 0;
+      > h2 {
+        height: 60px;
+        
+      }
+
+     >p>button{
+      padding: 0 20px;
+      border: none;
+      background-color: white;
+     }
+      > .route {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: rgba(239, 231, 231, 0.9);
+        margin: 40px 0;
+        justify-content: space-between;
+
+        padding: 0 20px;
+
+        > div {
+          display: flex;
+          width: 260px;
+
+          align-items: center;
+          flex-wrap: wrap;
+          padding: 40px 0px;
+
+          > h3 {
+            margin-right: 30px;
+            color: rgb(41, 118, 118);
+          }
+        }
+      }
+    }
+
+    > .passengerDetails {
+      > h2 {
+        height: 60px;
+      }
+
+      > .details {
+        background-color: rgba(239, 231, 231, 0.9);
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

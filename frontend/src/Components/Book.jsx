@@ -53,10 +53,7 @@ const Book = () => {
     totalPassenger = adult + child;
   }, [adult, child]);
 
-  const tripTypes = [
-    { name: "One Way", code: "OW" },
-    { name: "Round Trip", code: "RT" },
-  ];
+ 
 
   const subtractAdult = (e) => {
     e.preventDefault();
@@ -236,8 +233,8 @@ const Book = () => {
       {showPopup && (
         <div className="popup">
           <div className="popupContent">
-            <input type="text" placeholder="Flight number" />
-            <input type="text" placeholder="Your Name" />
+            <input type="text" placeholder="Booking ID" autoCorrect="flase"/>
+            <input type="text" placeholder="Your Name or Email" />
 
             <button>Submit</button>
           </div>

@@ -40,7 +40,7 @@ const Header = () => {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about-us">About us</NavLink>
           <NavLink to="/where-we-fly">Where We Fly</NavLink>
-          <NavLink to="/blog">Blog</NavLink>
+          <NavLink to="/blog">Reviews</NavLink>
           <NavLink to="/my-ticket">Ticket</NavLink>
         </div>
         <div className="auth">
@@ -56,7 +56,7 @@ const Header = () => {
             </>
           ) : (
             <div className="logout">
-              <button onClick={handleLogout}>Log Out</button>
+              <button onClick={handleLogout}></button>
             </div>
           )}
         </div>

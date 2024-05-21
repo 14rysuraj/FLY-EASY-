@@ -2,6 +2,8 @@
 import jwt from "jsonwebtoken";
 import { User } from "../models/user.js"
 import bcrypt from "bcrypt";
+import { Post } from "../models/post.js";
+import { Booking } from "../models/booking.js";
 
 
 
@@ -88,7 +90,7 @@ export const login = async (req, res) => {
   };
   
 
-export const logout = (req, res) => {
+export const logout = async(req, res) => {
 
 
     try {
@@ -110,3 +112,73 @@ export const logout = (req, res) => {
    
   };
   
+
+export const profile = async (req, res) => {
+      
+    const userId = req.user.id;
+    
+    const user = await User.findById(userId).select("-password");
+    const postCount = await Post.countDocuments({
+        userId:userId,
+    });
+
+    
+    if (!user) {
+        return res.status(404).json({
+            success: false,
+            message: "User Not Found",
+        })
+    }
+
+    res.status(200).json({
+        success: true,
+        user,
+        postCount,
+     
+    })
+
+
+}
+  
+export const tickets = async (req, res) => {
+
+    const userId = req.user.id;
+
+    const bookings = await Booking.find({
+        userId: userId,
+    }).populate('flightId').populate('passenger');
+
+
+    if (!bookings) {
+        return res.status(404).json({
+            success: false,
+            message: "Bookings Not Found",
+        })
+    }
+    
+    res.status(200).json({
+        success: true,
+        bookings,
+    })
+    
+}
+
+export const ticketDetails = async (req, res) => {
+    
+    const bookingId = req.params.id;
+
+    const booking = await Booking.findById(bookingId).populate('flightId').populate('passenger');
+
+    if (!booking) {
+        return res.status(404).json({
+            success: false,
+            message: "Booking Not Found",
+        })
+    }
+
+    res.status(200).json({
+        success: true,
+        booking,
+    })
+
+}

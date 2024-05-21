@@ -1,41 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import "./Availability.scss";
 import { LiaPlaneDepartureSolid } from "react-icons/lia";
 import { PiAirplaneLandingBold } from "react-icons/pi";
-import { useLocation, useNavigate } from "react-router-dom";
+import { redirect, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { context, showLogin } from "../../main";
+import { toast } from "react-toastify";
+import PopupLogin from "../../Components/PopupLogin";
 
 const Availability = () => {
+  const location = useLocation();
+  const formData = location.state;
+  const navigate = useNavigate();
   const [flightId, setFlightId] = useState("");
   console.log(flightId);
   const [showPassengerDetails, setShowPassengerDetails] = useState(false);
   const [showModify, setShowModify] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const formData = location.state;
-  const [from, setFrom] = useState(
-    () => localStorage.getItem("from") || formData?.from || ""
-  );
-  const [to, setTo] = useState(
-    () => localStorage.getItem("to") || formData?.to || ""
-  );
-  const [className, setClassName] = useState(
-    () => localStorage.getItem("className") || formData?.className || ""
-  );
+  const { isAuthenticated, setIsAuthenticated } = useContext(context);
+  const { showPopupLogin, setShowPopupLogin } = useContext(showLogin);
 
-  const [tripType, setTripType] = useState(
-    () => localStorage.getItem("tripType") || formData?.tripType || ""
-  );
-  const [departureDate, setDepartureDate] = useState(
-    () => localStorage.getItem("departureDate") || formData?.departureDate || ""
-  );
 
-  const [flights, setFlights] = useState([]);
   const [totalPassenger, setTotalPassenger] = useState(
     formData.adult + formData.child
   );
-
+  const [from, setFrom] = useState(formData?.from || "");
+  const [to, setTo] = useState(formData?.to || "");
+  const [className, setClassName] = useState(formData?.className);
+  const [tripType, setTripType] = useState(formData?.tripType);
+  const [departureDate, setDepartureDate] = useState(formData?.departureDate);
+  const [flights, setFlights] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
@@ -46,37 +40,42 @@ const Availability = () => {
     fetchData();
   }, []);
 
-  console.log(flights);
+  console.log("hello");
+  console.log(className);
 
-  useEffect(() => {
-    localStorage.setItem("from", from);
-    localStorage.setItem("to", to);
-    localStorage.setItem("className", className);
-    localStorage.setItem("tripType", tripType);
-    localStorage.setItem("departureDate", departureDate);
-  }, [from, to, className, tripType, departureDate]);
-
-  useEffect(() => {
-    setFrom(localStorage.getItem("from"));
-    setTo(localStorage.getItem("to"));
-    setClassName(localStorage.getItem("className"));
-    setTripType(localStorage.getItem("tripType"));
-    setDepartureDate(localStorage.getItem("departureDate"));
-  }, [location]);
-
-  useEffect(() => {
-    return () => {
-      localStorage.removeItem("from");
-      localStorage.removeItem("to");
-      localStorage.removeItem("className");
-      localStorage.removeItem("tripType");
-      localStorage.removeItem("departureDate");
-    };
-  }, []);
-
-  const handleSearch = () => {
-    navigate(window.location.reload(), { replace: true });
+  const handleSearch = async () => {
+    navigate(window.location.reload(), {
+      state: { ...formData, from, to, departureDate },
+      replace: true,
+    });
   };
+
+
+  const handlePayment = () => {
+      
+
+    navigate("/availability/payment", {
+      state: {
+        flightId,
+        passengerInfo,
+        totalPassenger,
+        from,
+        to,
+        className,
+        tripType,
+        departureDate
+      },
+
+    });
+
+
+
+
+    }
+
+
+
+
 
   //passenger filds rendereing dynamically
   const [passengerInfo, setPassengerInfo] = useState([]);
@@ -136,8 +135,21 @@ const Availability = () => {
   };
 
   const handleContinue = (e, i) => {
-    setFlightId(flights[i]._id);
-    setShowPassengerDetails((prev) => !prev);
+
+    e.preventDefault();
+
+    if (isAuthenticated) {
+  
+      setFlightId(flights[i]._id);
+      setShowPassengerDetails((prev) => !prev);
+    }
+    
+    else{
+
+      setShowPopupLogin(true);
+
+    }
+    
   };
   console.log(flightId);
 
@@ -177,6 +189,17 @@ const Availability = () => {
               <option value="Pokhara">Pokhara</option>
               <option value="Lumbini">Lumbini</option>
               <option value="Bhaktapur">Bhaktapur</option>
+              <option value="Bharatput">Bharatpur</option>
+              <option value="Biratnagar">Biratnagar</option> 
+              <option value="Janakpur">Janakpur</option>
+              <option value="Surkhet">Surkhet</option>
+              <option value="Nepaljung">Nepaljung</option>
+              <option value="Bhadrapur">Bhadrapur</option>
+              <option value="Bajhang">Bajhang</option>
+              <option value="Simara">Simara</option>
+              <option value="Dhangadhi">Dhangadhi</option>
+              <option value="Dolpa">Dolpa</option>
+              <option value="Ramechhap">Ramechhap</option>
             </select>
             <select value={to} onChange={(e) => setTo(e.target.value)}>
               <option value=""> TO</option>
@@ -184,6 +207,19 @@ const Availability = () => {
               <option value="Pokhara">Pokhara</option>
               <option value="Lumbini">Lumbini</option>
               <option value="Bhaktapur">Bhaktapur</option>
+              <option value="Bharatput">Bharatpur</option>
+              <option value="Biratnagar">Biratnagar</option> 
+              <option value="Janakpur">Janakpur</option>
+              <option value="Surkhet">Surkhet</option>
+              <option value="Nepaljung">Nepaljung</option>
+              <option value="Bhadrapur">Bhadrapur</option>
+              <option value="Bajhang">Bajhang</option>
+              <option value="Simara">Simara</option>
+              <option value="Dhangadhi">Dhangadhi</option>
+              <option value="Dolpa">Dolpa</option>
+              <option value="Ramechhap">Ramechhap</option>
+              
+
             </select>
             <input
               type="date"
@@ -208,7 +244,9 @@ const Availability = () => {
             >
               Cancel
             </button>
-            <button onClick={handleSearch}>Search Flight</button>
+            <button onClick={() => handleSearch(formData)}>
+              Search Flight
+            </button>
           </div>
         </div>
       ) : (
@@ -232,7 +270,7 @@ const Availability = () => {
             {renderPassengerInputs()}
 
             <div className="pay">
-              <button>Pay Now</button>
+              <button  onClick={handlePayment}>Pay Now</button>
             </div>
           </div>
         </div>

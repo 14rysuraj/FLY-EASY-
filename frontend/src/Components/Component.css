@@ -1,0 +1,1088 @@
+@charset "UTF-8";
+.navbar {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 3000;
+  box-shadow: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(0px);
+  color: black;
+  background: #477dba;
+}
+.navbar.navbar-scrolled {
+  background: linear-gradient(135deg, rgba(0, 61, 130, 0.98) 0%, rgba(0, 87, 184, 0.98) 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  height: 65px;
+}
+.navbar.navbar-scrolled .logo .logo-icon {
+  transform: scale(0.95);
+}
+.navbar > .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+.navbar > .logo .logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, var(--accent-red) 0%, #c41530 100%);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(227, 24, 55, 0.4);
+  transition: all 0.3s ease;
+}
+.navbar > .logo .logo-icon > svg {
+  color: var(--white);
+  font-size: 24px;
+}
+.navbar > .logo .logo-icon:hover {
+  transform: rotate(360deg) scale(1.05);
+  box-shadow: 0 6px 16px rgba(227, 24, 55, 0.5);
+}
+.navbar > .logo > h2 {
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.navbar > .links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 3001;
+}
+.navbar > .links > a {
+  padding: 10px 20px;
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.navbar > .links > a::before {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-red);
+  transition: width 0.35s ease;
+}
+.navbar > .links > a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+.navbar > .links > a:hover::before {
+  width: 60%;
+}
+.navbar > .links > a.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+.navbar > .links > a.active::before {
+  width: 60%;
+}
+.navbar > .auth {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 3001;
+}
+.navbar > .auth > .ls {
+  font-size: 14px;
+  font-weight: 500;
+}
+.navbar > .auth > .ls > a {
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-weight: 600;
+}
+.navbar > .auth > .ls > a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+.navbar > .auth > .signup {
+  background: linear-gradient(135deg, var(--accent-red) 0%, #c41530 100%);
+  color: var(--white);
+  padding: 0;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(227, 24, 55, 0.4);
+  transition: all 0.3s ease;
+}
+.navbar > .auth > .signup > a {
+  padding: 10px 24px;
+  display: block;
+}
+.navbar > .auth > .signup:hover {
+  background: linear-gradient(135deg, #c41530 0%, #a01228 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(227, 24, 55, 0.5);
+}
+.navbar > .auth > .signup > a {
+  color: var(--white);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  z-index: 3002;
+}
+
+/* Book */
+.bookBody {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: -120px;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  padding: 0 20px;
+}
+.bookBody > .container {
+  width: 100%;
+  max-width: 1300px;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  padding: 30px;
+}
+.bookBody > .container > .links {
+  margin: 0 0 20px 0;
+  border-bottom: 2px solid var(--medium-gray);
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-weight: 600;
+}
+.bookBody > .container > .links > a {
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--dark-gray);
+  position: relative;
+  transition: all 0.3s ease;
+}
+.bookBody > .container > .links > a:hover {
+  color: var(--accent-red);
+}
+.bookBody > .container > .links > a[style*=red] {
+  color: var(--accent-red);
+}
+.bookBody > .container > .links > a[style*=red]::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent-red);
+}
+.bookBody > .container > .mainBook {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0;
+}
+.bookBody > .container > .mainBook > .fromto {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bookBody > .container > .mainBook > .fromto > .locationSelector {
+  position: relative;
+  min-width: 200px;
+  cursor: pointer;
+  padding: 12px 16px;
+  border: 2px solid var(--medium-gray);
+  border-radius: 12px;
+  background: var(--white);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bookBody > .container > .mainBook > .fromto > .locationSelector:hover {
+  border-color: var(--secondary-blue);
+  box-shadow: 0 4px 12px rgba(0, 87, 184, 0.1);
+  transform: translateY(-2px);
+}
+.bookBody > .container > .mainBook > .fromto > .locationSelector > .label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--secondary-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.bookBody > .container > .mainBook > .fromto > .locationSelector > .value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-gray);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown {
+  position: relative;
+  min-width: 200px;
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown > .selectedOption {
+  font-size: 24px;
+  font-weight: 700;
+  border: none;
+  border-bottom: 2px solid var(--medium-gray);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  padding: 12px 8px;
+  color: var(--dark-gray);
+  background: transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown > .selectedOption:hover {
+  border-bottom-color: var(--secondary-blue);
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown > .selectedOption::after {
+  content: "▼";
+  font-size: 14px;
+  margin-left: 8px;
+  color: var(--secondary-blue);
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown > .options {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 100;
+  animation: dropdownSlideIn 0.2s ease-out;
+  /* Custom scrollbar */
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown > .options > .option {
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--dark-gray);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--light-gray);
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown > .options > .option:last-child {
+  border-bottom: none;
+  border-radius: 0 0 12px 12px;
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown > .options > .option:first-child {
+  border-radius: 12px 12px 0 0;
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown > .options > .option:hover {
+  background: linear-gradient(90deg, rgba(0, 87, 184, 0.1) 0%, rgba(0, 87, 184, 0.05) 100%);
+  color: var(--secondary-blue);
+  padding-left: 20px;
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown > .options::-webkit-scrollbar {
+  width: 6px;
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown > .options::-webkit-scrollbar-track {
+  background: var(--light-gray);
+  border-radius: 0 12px 12px 0;
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown > .options::-webkit-scrollbar-thumb {
+  background: var(--secondary-blue);
+  border-radius: 3px;
+}
+.bookBody > .container > .mainBook > .fromto > .customDropdown > .options::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-blue);
+}
+.bookBody > .container > .mainBook > .fromto > select {
+  font-size: 24px;
+  font-weight: 700;
+  border: none;
+  border-bottom: 2px solid var(--medium-gray);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  padding: 12px 8px;
+  color: var(--dark-gray);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+.bookBody > .container > .mainBook > .fromto > select:focus {
+  outline: none;
+  border-bottom-color: var(--secondary-blue);
+}
+.bookBody > .container > .mainBook > .fromto > select:hover {
+  border-bottom-color: var(--secondary-blue);
+}
+.bookBody > .container > .mainBook > .fromto > button {
+  border: none;
+  background: transparent;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.bookBody > .container > .mainBook > .fromto > button:hover {
+  background: var(--light-gray);
+  transform: rotate(180deg);
+}
+.bookBody > .container > .mainBook > .fromto > button > svg {
+  font-size: 28px;
+  color: var(--accent-red);
+}
+.bookBody > .container > .mainBook > .options {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.bookBody > .container > .mainBook > .options > .tripType {
+  padding: 12px 24px;
+  border-right: 1px solid var(--medium-gray);
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.bookBody > .container > .mainBook > .options > .tripType > select {
+  border: 1px solid var(--medium-gray);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 15px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  color: var(--dark-gray);
+  background: var(--white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.bookBody > .container > .mainBook > .options > .tripType > select:focus {
+  outline: none;
+  border-color: var(--secondary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 87, 184, 0.1);
+}
+.bookBody > .container > .mainBook > .options > .tripType > select:hover {
+  border-color: var(--secondary-blue);
+}
+.bookBody > .container > .mainBook > .options > .dates {
+  display: flex;
+  gap: 16px;
+}
+.bookBody > .container > .mainBook > .options > .dates > .dr {
+  padding: 12px 20px;
+  font-size: 14px;
+}
+.bookBody > .container > .mainBook > .options > .dates > .dr > p {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+.bookBody > .container > .mainBook > .options > .dates > .dr > input {
+  height: 40px;
+  border: 1px solid var(--medium-gray);
+  border-radius: 6px;
+  padding: 0 12px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.bookBody > .container > .mainBook > .options > .dates > .dr > input:focus {
+  border-color: var(--secondary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 87, 184, 0.1);
+}
+.bookBody > .container > .mainBook > .options > .dates > .dr > input:hover {
+  border-color: var(--secondary-blue);
+}
+.bookBody > .container > .mainBook > .options > .dates > .dr > input:disabled {
+  background: var(--light-gray);
+  cursor: not-allowed;
+}
+.bookBody > .container > .mainBook > .options > .boundry {
+  background-color: var(--medium-gray);
+  width: 1px;
+  height: 60px;
+  align-self: center;
+}
+.bookBody > .container > .mainBook > .options > .passenger {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  padding: 12px 20px;
+  min-width: 200px;
+  position: relative;
+}
+.bookBody > .container > .mainBook > .options > .passenger > p {
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+.bookBody > .container > .mainBook > .options > .passenger > .selects {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bookBody > .container > .mainBook > .options > .passenger > .selects > h5 {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-weight: 500;
+  color: var(--dark-gray);
+}
+.bookBody > .container > .mainBook > .options > .passenger > .selects > button {
+  border: none;
+  background: transparent;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.bookBody > .container > .mainBook > .options > .passenger > .selects > button:hover {
+  background: var(--light-gray);
+}
+.bookBody > .container > .mainBook > .options > .passenger > .selects > button > svg {
+  font-size: 24px;
+  color: var(--secondary-blue);
+}
+.bookBody > .container > .mainBook > .options > button {
+  height: 50px;
+  min-width: 180px;
+  background: linear-gradient(135deg, var(--accent-red) 0%, #c41530 100%);
+  color: var(--white);
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(227, 24, 55, 0.3);
+  transition: all 0.3s ease;
+}
+.bookBody > .container > .mainBook > .options > button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(227, 24, 55, 0.4);
+}
+.bookBody > .container > .mainBook > .options > button:active {
+  transform: translateY(0);
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+.popup > .popupContent {
+  width: 100%;
+  max-width: 500px;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: modalSlideIn 0.3s ease-out;
+}
+.popup > .popupContent > h2 {
+  color: var(--primary-blue);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.popup > .popupContent > p {
+  color: var(--dark-gray);
+  text-align: center;
+  margin-bottom: 20px;
+}
+.popup > .popupContent > input {
+  height: 50px;
+  width: 100%;
+  padding: 0 20px;
+  font-size: 15px;
+  border: 2px solid var(--medium-gray);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.popup > .popupContent > input:focus {
+  border-color: var(--secondary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 87, 184, 0.1);
+  outline: none;
+}
+.popup > .popupContent > input::placeholder {
+  color: #999;
+}
+.popup > .popupContent > button {
+  height: 50px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+  color: var(--white);
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 87, 184, 0.3);
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+.popup > .popupContent > button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 87, 184, 0.4);
+}
+.popup > .popupContent > button:active {
+  transform: translateY(0);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes dropdownSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Prepare to travel */
+.pttBody {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 40px;
+  background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 50%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.pttBody::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230057b8' fill-opacity='0.02'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.4;
+}
+.pttBody > .ptt-container {
+  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+  z-index: 1;
+}
+.pttBody .description {
+  flex: 1;
+  max-width: 500px;
+  padding: 20px;
+}
+.pttBody .description .section-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, var(--accent-red) 0%, #c41530 100%);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(227, 24, 55, 0.3);
+}
+.pttBody .description > h1 {
+  color: var(--primary-blue);
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+.pttBody .description > h1::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-blue) 0%, var(--accent-red) 100%);
+  border-radius: 2px;
+}
+.pttBody .description > p {
+  margin-top: 32px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--dark-gray);
+  opacity: 0.9;
+}
+.pttBody .description .explore-btn {
+  margin-top: 32px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+  color: var(--white);
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 87, 184, 0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.pttBody .description .explore-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 87, 184, 0.4);
+}
+.pttBody .description .explore-btn:active {
+  transform: translateY(-1px);
+}
+.pttBody > .ptt-container > .images {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.psgoptions {
+  min-height: 220px;
+  width: 280px;
+  background: var(--white);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  box-shadow: var(--shadow-lg);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 16px;
+  z-index: 100;
+}
+.psgoptions > .adult {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+.psgoptions > .adult:last-child {
+  border-bottom: none;
+}
+.psgoptions > .adult > .first {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.psgoptions > .adult > .first > h5 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+.psgoptions > .adult > .first > p {
+  font-size: 12px;
+  color: #666;
+}
+.psgoptions > .adult > .feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.psgoptions > .adult > .feature > button {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--secondary-blue);
+  background: var(--white);
+  color: var(--secondary-blue);
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.psgoptions > .adult > .feature > button:hover:not(:disabled) {
+  background: var(--secondary-blue);
+  color: var(--white);
+}
+.psgoptions > .adult > .feature > button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.psgoptions > .adult > .feature > p {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.logout > button {
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  background-image: url(../assets/profilepic.jpeg);
+  background-position: center;
+  background-size: cover;
+  border: 3px solid var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+.logout > button:hover {
+  box-shadow: var(--shadow-md);
+  transform: scale(1.05);
+}
+
+#home-links a.active {
+  background: rgba(255, 255, 255, 0.15);
+}
+#home-links a.active::before {
+  width: calc(100% - 40px) !important;
+}
+
+/* Responsive rules */
+@media (max-width: 1200px) {
+  .bookBody > .container {
+    width: 95%;
+  }
+  .navbar {
+    padding: 0 24px;
+  }
+}
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0 16px;
+    height: 70px;
+  }
+  .nav-toggle-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  .nav-toggle-label:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .nav-toggle-label span {
+    display: block;
+    height: 3px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  .navbar > .links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    padding: 20px;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: var(--shadow-lg);
+  }
+  .navbar > .links > a {
+    width: 100%;
+    text-align: left;
+    padding: 14px 20px;
+  }
+  .navbar > .links > a::before {
+    display: none;
+  }
+  .navbar > .links > a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(0);
+  }
+  .nav-toggle:checked + .nav-toggle-label + .links {
+    display: flex;
+  }
+  .navbar > .auth {
+    gap: 8px;
+  }
+  .navbar > .auth > .ls {
+    display: none;
+  }
+  .navbar > .logo > h2 {
+    font-size: 1.2rem;
+  }
+  .bookBody {
+    top: 70px;
+  }
+  .bookBody > .container {
+    width: 96%;
+    padding: 16px 0;
+  }
+  .bookBody > .container > .mainBook {
+    flex-direction: column;
+    gap: 16px;
+    padding: 10px 16px;
+  }
+  .bookBody > .container > .mainBook > .fromto {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .bookBody > .container > .mainBook > .fromto > select {
+    font-size: 20px;
+  }
+  .bookBody > .container > .mainBook > .options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .bookBody > .container > .mainBook > .options > .tripType,
+  .bookBody > .container > .mainBook > .options > .dates,
+  .bookBody > .container > .mainBook > .options > .passenger {
+    border-right: none;
+    border-bottom: 1px solid var(--medium-gray);
+    padding: 16px;
+  }
+  .bookBody > .container > .mainBook > .options > .boundry {
+    display: none;
+  }
+  .bookBody > .container > .mainBook > .options > button {
+    width: 100%;
+    margin-top: 12px;
+  }
+  .popup {
+    top: auto;
+    position: relative;
+    margin-top: 20px;
+  }
+  .popup > .popupContent {
+    width: 96%;
+    flex-direction: column;
+  }
+  .popup > .popupContent > input {
+    width: 100%;
+  }
+  .popup > .popupContent > button {
+    width: 100%;
+  }
+  .pttBody {
+    padding: 40px 20px;
+  }
+  .pttBody > .ptt-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .pttBody .description {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+  .pttBody .description > h1 {
+    font-size: 2.5rem;
+  }
+  .pttBody .description > h1::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .pttBody .description > p {
+    font-size: 1rem;
+  }
+  .pttBody > .ptt-container > .images {
+    gap: 20px;
+  }
+  .psgoptions {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 320px;
+  }
+}
+@media (max-width: 480px) {
+  .navbar {
+    height: 60px;
+    padding: 0 12px;
+  }
+  .navbar > .logo > h2 {
+    font-size: 1rem;
+  }
+  .navbar > .logo > div > svg {
+    font-size: 1.5rem;
+  }
+  .nav-toggle-label {
+    width: 32px;
+    height: 32px;
+  }
+  .bookBody {
+    top: 60px;
+  }
+  .bookBody > .container > .links {
+    gap: 16px;
+    overflow-x: auto;
+    padding: 10px;
+  }
+  .bookBody > .container > .links > a {
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  .bookBody > .container > .mainBook > .fromto > select {
+    font-size: 18px;
+  }
+  .pttBody > .description > h1 {
+    font-size: 1.8rem;
+  }
+}
+/* Location Popup */
+.locationPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+.locationPopup > .locationPopupContent {
+  width: 100%;
+  max-width: 600px;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: modalSlideIn 0.3s ease-out;
+  max-height: 80vh;
+}
+.locationPopup > .locationPopupContent > input {
+  height: 55px;
+  width: 100%;
+  padding: 0 20px;
+  font-size: 16px;
+  border: 2px solid var(--medium-gray);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.locationPopup > .locationPopupContent > input:focus {
+  border-color: var(--secondary-blue);
+  box-shadow: 0 0 0 4px rgba(0, 87, 184, 0.1);
+  outline: none;
+}
+.locationPopup > .locationPopupContent > input::placeholder {
+  color: #999;
+}
+.locationPopup > .locationPopupContent > .locationOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px 0;
+  /* Custom scrollbar */
+}
+.locationPopup > .locationPopupContent > .locationOptions > .locationOption {
+  padding: 16px 20px;
+  background: var(--white);
+  border: 2px solid var(--medium-gray);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-gray);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.locationPopup > .locationPopupContent > .locationOptions > .locationOption:hover {
+  border-color: var(--secondary-blue);
+  background: linear-gradient(135deg, rgba(0, 87, 184, 0.1) 0%, rgba(0, 87, 184, 0.05) 100%);
+  color: var(--secondary-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 87, 184, 0.15);
+}
+.locationPopup > .locationPopupContent > .locationOptions > .locationOption:active {
+  transform: translateY(-1px);
+}
+.locationPopup > .locationPopupContent > .locationOptions::-webkit-scrollbar {
+  width: 8px;
+}
+.locationPopup > .locationPopupContent > .locationOptions::-webkit-scrollbar-track {
+  background: var(--light-gray);
+  border-radius: 10px;
+}
+.locationPopup > .locationPopupContent > .locationOptions::-webkit-scrollbar-thumb {
+  background: var(--secondary-blue);
+  border-radius: 10px;
+}
+.locationPopup > .locationPopupContent > .locationOptions::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-blue);
+}
+
+/*# sourceMappingURL=Component.css.map */

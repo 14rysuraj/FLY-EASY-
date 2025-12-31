@@ -17,6 +17,10 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!email) return toast.error("Please enter your email address!");
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email))
+      return toast.error("Invalid Email Address!");
+    else if (!password) return toast.error("Please enter your password!");
 
     const response = await axios.post(
       "/api/user/login",
@@ -75,7 +79,7 @@ const Login = () => {
 
           <button onClick={handleLogin}>Sign In</button>
           <div className="foot">
-            <p>Forgot Password ?</p>
+            <NavLink to="/adm-login"> Admin Login</NavLink>
             <p>
               <NavLink to="/signup">Sign Up</NavLink>
             </p>

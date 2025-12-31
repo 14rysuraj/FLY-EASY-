@@ -1,0 +1,240 @@
+.paymentBody {
+  min-height: calc(100vh - 70px);
+  margin-top: 70px;
+  background: linear-gradient(135deg, var(--light-gray) 0%, var(--medium-gray) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px;
+}
+.paymentBody > .container {
+  background: var(--white);
+  width: 100%;
+  max-width: 900px;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  margin: 20px 0;
+}
+.paymentBody > .container > .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 2px solid var(--medium-gray);
+  margin-bottom: 30px;
+}
+.paymentBody > .container > .heading > h2 {
+  color: var(--primary-blue);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.paymentBody > .container > .heading > p {
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+.paymentBody > .container > .infos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.paymentBody > .container > .infos > p {
+  padding: 12px 0;
+  font-size: 15px;
+  color: var(--dark-gray);
+  line-height: 1.6;
+}
+.paymentBody > .container > .infos > p > strong {
+  color: var(--primary-blue);
+  margin-right: 8px;
+}
+.paymentBody > .container > .infos > h4 {
+  margin-top: 20px;
+}
+.paymentBody > .container > .infos > h4 > button {
+  color: var(--accent-red);
+  padding: 10px 0;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+.paymentBody > .container > .infos > h4 > button:hover {
+  color: #c41530;
+}
+.paymentBody > .container > .payment-actions {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.paymentBody > .container > .payment-actions > button {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+.paymentBody > .container > .payment-actions > button:first-child {
+  background: var(--medium-gray);
+}
+.paymentBody > .container > .payment-actions > button:first-child:hover {
+  background: var(--dark-gray);
+  color: var(--white);
+}
+.paymentBody > .container > .payment-actions > button:last-child {
+  background: linear-gradient(135deg, var(--success-green) 0%, #218838 100%);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+.paymentBody > .container > .payment-actions > button:last-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+.paymentBody > .policy {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  padding: 20px;
+}
+.paymentBody > .policy > .container {
+  width: 100%;
+  max-width: 900px;
+  background: var(--white);
+  border-radius: 16px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.paymentBody > .policy > .container > .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  background: linear-gradient(135deg, var(--accent-red) 0%, #c41530 100%);
+  padding: 0 30px;
+}
+.paymentBody > .policy > .container > .heading > h2 {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.paymentBody > .policy > .container > .heading > button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.paymentBody > .policy > .container > .heading > button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.paymentBody > .policy > .container > .heading > button > svg {
+  font-size: 2rem;
+  color: var(--white);
+}
+.paymentBody > .policy > .container > .prohibitedItems {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background: var(--white);
+  max-height: calc(90vh - 70px);
+  overflow-y: auto;
+}
+.paymentBody > .policy > .container > .prohibitedItems > .container {
+  width: 100%;
+  border: 2px solid var(--medium-gray);
+  border-radius: 12px;
+  padding: 30px;
+}
+.paymentBody > .policy > .container > .prohibitedItems > .container > h2 {
+  border-bottom: 2px solid var(--primary-blue);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  color: var(--primary-blue);
+  font-size: 1.4rem;
+}
+.paymentBody > .policy > .container > .prohibitedItems > .container > .items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.paymentBody > .policy > .container > .prohibitedItems > .container > .items > p {
+  padding: 8px 16px;
+  background: var(--light-gray);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark-gray);
+  transition: all 0.3s ease;
+}
+.paymentBody > .policy > .container > .prohibitedItems > .container > .items > p:hover {
+  background: var(--medium-gray);
+}
+
+/* Responsive Payment */
+@media (max-width: 900px) {
+  .paymentBody {
+    margin-top: 70px;
+    padding: 20px 12px;
+  }
+  .paymentBody > .container {
+    padding: 30px 24px;
+  }
+  .paymentBody > .container > .heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .paymentBody > .container > .heading > h2 {
+    font-size: 1.5rem;
+  }
+  .paymentBody > .container > .payment-actions {
+    justify-content: stretch;
+  }
+  .paymentBody > .container > .payment-actions > button {
+    flex: 1;
+    min-width: 140px;
+  }
+  .paymentBody > .policy > .container > .prohibitedItems {
+    padding: 24px 16px;
+  }
+  .paymentBody > .policy > .container > .prohibitedItems > .container {
+    padding: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .paymentBody {
+    margin-top: 60px;
+  }
+  .paymentBody > .container {
+    padding: 24px 16px;
+  }
+  .paymentBody > .container > .heading > h2 {
+    font-size: 1.3rem;
+  }
+  .paymentBody > .container > .payment-actions {
+    flex-direction: column;
+  }
+  .paymentBody > .container > .payment-actions > button {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=Payment.css.map */

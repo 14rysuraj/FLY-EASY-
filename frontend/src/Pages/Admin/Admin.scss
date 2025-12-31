@@ -1,0 +1,101 @@
+.admin{
+  min-height: 100vh;
+  position: relative;
+
+  > nav {
+    height: 50px;
+    background-color: rgb(23, 15, 76);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+    z-index: 10;
+
+    > div > span {
+      padding: 0 20px;
+    }
+
+    >div>.admin-logout{
+      border: none;
+    background-color: rgb(23, 15, 76);
+      color: white;
+ 
+    }
+  }
+
+  .admin-container {
+    display: flex;
+    margin-top: 50px;
+
+    > .aside {
+      width: 300px;
+   border-right: 2px solid rgb(216, 212, 212);
+      height: 100vh;
+      position: fixed;
+      transform: translateX(-100%);
+      transition: all 0.5s ease;
+
+      box-shadow: 0px 2px 13px rgba(3, 7, 18, 0.01),
+        0px 8px 51px rgba(3, 7, 18, 0.01), 0px 18px 115px rgba(3, 7, 18, 0.02),
+        0px 32px 205px rgba(3, 7, 18, 0.03);
+
+      > .links {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 20px;
+        > a {
+          padding: 8px 10px;
+          background-color: aliceblue;
+          margin: 10px 0;
+        transition:all 0.5s ease;
+        &:hover{
+            background-color:black;
+            color: white;
+            margin-left: 20px;
+        }
+  
+    }
+       
+      }
+    }
+
+    > .hero-page {
+      width: calc(100% - 300px);
+      margin-left: 300px;
+      transition: all 0.5s ease;
+      padding: 20px;
+    
+
+   
+ 
+      
+
+    }
+  }
+}
+
+.full-width {
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+
+.header-btn {
+  border: none;
+  font-size: larger;
+  background-color: rgb(23, 15, 76);
+  color: white;
+}
+
+#links a.active{
+  background-color: rgb(23, 15, 76);
+  color: white;
+}
+#links a.pending{
+  background-color: red;
+}
+
+

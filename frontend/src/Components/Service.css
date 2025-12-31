@@ -1,0 +1,119 @@
+.chooseCard {
+  height: 320px;
+  width: 280px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 20px;
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+.chooseCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+.chooseCard:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 87, 184, 0.2);
+  border-color: var(--secondary-blue);
+}
+.chooseCard:hover::before {
+  transform: scaleX(1);
+}
+.chooseCard:hover > .stat-badge {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, var(--accent-red) 0%, #c41530 100%);
+}
+.chooseCard:hover > .img {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+}
+.chooseCard:hover > .img > svg {
+  color: var(--white);
+}
+.chooseCard > .stat-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 87, 184, 0.3);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+.chooseCard > .img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 87, 184, 0.1) 0%, rgba(0, 87, 184, 0.05) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 24px rgba(0, 87, 184, 0.15);
+}
+.chooseCard > .img > svg {
+  color: var(--secondary-blue);
+  transition: all 0.4s ease;
+}
+.chooseCard > h2 {
+  color: var(--primary-blue);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 8px 0;
+  letter-spacing: 0.3px;
+}
+.chooseCard > .pp {
+  text-align: center;
+  color: var(--dark-gray);
+  line-height: 1.6;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Responsive Service Cards */
+@media (max-width: 480px) {
+  .chooseCard {
+    width: 90%;
+    max-width: 320px;
+    height: auto;
+    min-height: 280px;
+    padding: 24px 16px;
+  }
+  .chooseCard > .stat-badge {
+    top: 16px;
+    right: 16px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .chooseCard > .img {
+    height: 80px;
+    width: 80px;
+    font-size: 2.5rem;
+  }
+  .chooseCard > h2 {
+    font-size: 1.1rem;
+  }
+}
+
+/*# sourceMappingURL=Service.css.map */

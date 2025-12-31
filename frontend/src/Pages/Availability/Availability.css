@@ -1,0 +1,384 @@
+.availabilityBody {
+  margin-top: 70px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+  padding-bottom: 40px;
+}
+.availabilityBody > .header {
+  min-height: 140px;
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 0;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.availabilityBody > .header > .first {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.availabilityBody > .header > .first > .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.availabilityBody > .header > .first > .logo > svg {
+  color: var(--accent-red);
+  font-size: 2rem;
+}
+.availabilityBody > .header > .first > .logo > p {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+.availabilityBody > .header > button {
+  border: none;
+  background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+  padding: 12px 30px;
+  color: var(--white);
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 87, 184, 0.3);
+  transition: all 0.3s ease;
+}
+.availabilityBody > .header > button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 87, 184, 0.4);
+}
+.availabilityBody > .result {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.availabilityBody > .result > .numOfFlight {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+.availabilityBody > .result > .flights {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.availabilityBody > .result > .flights:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+.availabilityBody > .result > .flights > .first {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border-bottom: 2px solid var(--light-gray);
+}
+.availabilityBody > .result > .flights > .first > p {
+  padding: 12px 0;
+  font-size: 15px;
+  color: var(--dark-gray);
+}
+.availabilityBody > .result > .flights > .first > p:not(:last-child) {
+  border-bottom: 1px solid var(--medium-gray);
+}
+.availabilityBody > .result > .flights > .first > .info {
+  margin: 20px 0;
+  gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.availabilityBody > .result > .flights > .first > .info > .logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+.availabilityBody > .result > .flights > .second {
+  padding: 24px;
+  background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.availabilityBody > .result > .flights > .second > .first {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+.availabilityBody > .result > .flights > .second > .first > h3 {
+  font-size: 1.5rem;
+}
+.availabilityBody > .result > .flights > .second > .first > button {
+  border: none;
+  padding: 12px 30px;
+  background: var(--accent-red);
+  color: var(--white);
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(227, 24, 55, 0.3);
+  transition: all 0.3s ease;
+}
+.availabilityBody > .result > .flights > .second > .first > button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(227, 24, 55, 0.4);
+}
+.availabilityBody > .showpassengers {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 30px;
+}
+.availabilityBody > .showpassengers > .container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+}
+.availabilityBody > .showpassengers > .container > .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--medium-gray);
+}
+.availabilityBody > .showpassengers > .container > .heading > h2 {
+  color: var(--primary-blue);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.availabilityBody > .showpassengers > .container > .heading > button {
+  border: none;
+  padding: 10px 24px;
+  background: var(--medium-gray);
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.availabilityBody > .showpassengers > .container > .heading > button:hover {
+  background: var(--dark-gray);
+  color: var(--white);
+}
+.availabilityBody > .showpassengers > .container > .passengerInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 30px 0;
+}
+.availabilityBody > .showpassengers > .container > .passengerInfo > select {
+  height: 50px;
+  min-width: 100px;
+  padding: 0 12px;
+  border: 2px solid var(--medium-gray);
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+.availabilityBody > .showpassengers > .container > .passengerInfo > select:focus {
+  outline: none;
+  border-color: var(--secondary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 87, 184, 0.1);
+}
+.availabilityBody > .showpassengers > .container > .passengerInfo > input {
+  flex: 1;
+  min-width: 250px;
+  height: 50px;
+  padding: 0 20px;
+  border: 2px solid var(--medium-gray);
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+.availabilityBody > .showpassengers > .container > .passengerInfo > input:focus {
+  outline: none;
+  border-color: var(--secondary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 87, 184, 0.1);
+}
+.availabilityBody > .showpassengers > .container > .pay {
+  margin-top: 20px;
+}
+.availabilityBody > .showpassengers > .container > .pay > button {
+  border: none;
+  padding: 14px 40px;
+  background: linear-gradient(135deg, var(--success-green) 0%, #218838 100%);
+  color: var(--white);
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+  transition: all 0.3s ease;
+}
+.availabilityBody > .showpassengers > .container > .pay > button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+.showModifyOpt {
+  background: var(--white);
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px 0;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+}
+.showModifyOpt > .inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 30px 0;
+}
+.showModifyOpt > .inputs > select,
+.showModifyOpt > .inputs > input {
+  height: 50px;
+  flex: 1;
+  min-width: 200px;
+  padding: 0 20px;
+  border: 2px solid var(--medium-gray);
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+.showModifyOpt > .inputs > select:focus,
+.showModifyOpt > .inputs > input:focus {
+  outline: none;
+  border-color: var(--secondary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 87, 184, 0.1);
+}
+.showModifyOpt > .buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.showModifyOpt > .buttons > button {
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.showModifyOpt > .buttons > button:first-child {
+  background: var(--medium-gray);
+}
+.showModifyOpt > .buttons > button:first-child:hover {
+  background: var(--dark-gray);
+  color: var(--white);
+}
+.showModifyOpt > .buttons > button:last-child {
+  background: linear-gradient(135deg, var(--accent-red) 0%, #c41530 100%);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(227, 24, 55, 0.3);
+}
+.showModifyOpt > .buttons > button:last-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(227, 24, 55, 0.4);
+}
+
+/* Responsive Availability */
+@media (max-width: 900px) {
+  .availabilityBody {
+    margin-top: 70px;
+  }
+  .availabilityBody > .header,
+  .availabilityBody > .result,
+  .availabilityBody > .showpassengers {
+    width: 95%;
+  }
+  .availabilityBody > .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .availabilityBody > .header > .first {
+    justify-content: center;
+  }
+  .availabilityBody > .header > button {
+    width: 100%;
+  }
+  .availabilityBody > .result > .flights > .first > .info {
+    gap: 20px;
+  }
+  .availabilityBody > .result > .flights > .second {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .availabilityBody > .result > .flights > .second > .first {
+    width: 100%;
+  }
+  .availabilityBody > .result > .flights > .second > .first > button {
+    width: 100%;
+  }
+  .availabilityBody > .showpassengers > .container > .passengerInfo > select,
+  .availabilityBody > .showpassengers > .container > .passengerInfo > input {
+    min-width: 100%;
+  }
+  .showModifyOpt {
+    width: 95%;
+    padding: 20px;
+  }
+  .showModifyOpt > .buttons > button {
+    flex: 1;
+    min-width: 140px;
+  }
+}
+@media (max-width: 480px) {
+  .availabilityBody {
+    margin-top: 60px;
+  }
+  .availabilityBody > .header > .first > .logo {
+    padding: 10px 16px;
+  }
+  .availabilityBody > .header > .first > .logo > svg {
+    font-size: 1.5rem;
+  }
+  .availabilityBody > .header > .first > .logo > p {
+    font-size: 1.1rem;
+  }
+  .availabilityBody > .showpassengers > .container {
+    padding: 20px;
+  }
+  .availabilityBody > .showpassengers > .container > .heading {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .availabilityBody > .showpassengers > .container > .heading > h2 {
+    font-size: 1.4rem;
+  }
+  .availabilityBody > .showpassengers > .container > .heading > button {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=Availability.css.map */

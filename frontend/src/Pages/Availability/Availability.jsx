@@ -51,22 +51,27 @@ const Availability = () => {
   };
 
 
+  const [passengerInfo, setPassengerInfo] = useState([]);
+
   const handlePayment = () => {
-      
 
-    navigate("/availability/payment", {
-      state: {
-        flightId,
-        passengerInfo,
-        totalPassenger,
-        from,
-        to,
-        className,
-        tripType,
-        departureDate
-      },
+    if (!passengerInfo) return toast.error("Fill the passenger information");
 
-    });
+
+      navigate("/availability/payment", {
+        state: {
+          flightId,
+          passengerInfo,
+          totalPassenger,
+          from,
+          to,
+          className,
+          tripType,
+          departureDate
+        },
+
+      });
+    
 
 
 
@@ -78,7 +83,7 @@ const Availability = () => {
 
 
   //passenger filds rendereing dynamically
-  const [passengerInfo, setPassengerInfo] = useState([]);
+ 
 
   const handleTitleChange = (e, index) => {
     const updatedPassengerInfo = [...passengerInfo];

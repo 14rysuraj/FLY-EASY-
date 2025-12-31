@@ -3,14 +3,53 @@
   box-sizing: border-box;
   padding: 0;
   scroll-behavior: smooth;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 a {
   text-decoration: none;
   color: black;
 }
+
 button {
   cursor: pointer;
+  transition: all 0.3s ease;
 }
+
 input:focus {
   outline: none;
+}
+
+/* Professional color scheme for airline industry */
+:root {
+  --primary-blue: #003d82;
+  --secondary-blue: #0057b8;
+  --accent-red: #e31837;
+  --light-gray: #f5f7fa;
+  --medium-gray: #e0e6ed;
+  --dark-gray: #333;
+  --white: #ffffff;
+  --success-green: #28a745;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+}
+
+/* Smooth scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--medium-gray);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c0c8d0;
 }

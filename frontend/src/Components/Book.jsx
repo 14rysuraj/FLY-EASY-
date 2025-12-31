@@ -1,16 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Component.scss";
 import { NavLink } from "react-router-dom";
 import { LiaExchangeAltSolid } from "react-icons/lia";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { context, showLogin } from "../main";
+import axios from "axios";
 
 const Book = () => {
   const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [showPassengerOptions, setShowPassengerOptions] = useState(false);
+  const [showFromDropdown, setShowFromDropdown] = useState(false);
+  const [showToDropdown, setShowToDropdown] = useState(false);
+  const [showLocationPopup, setShowLocationPopup] = useState(false);
+  const [currentSelectionType, setCurrentSelectionType] = useState(""); // "from" or "to"
+  const [searchQuery, setSearchQuery] = useState("");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [className, setClassName] = useState("Economy");
@@ -19,6 +26,29 @@ const Book = () => {
   const [returnDate, setReturnDate] = useState("");
   const [adult, setadult] = useState(1);
   const [child, setchild] = useState(0);
+  const { showPopupLogin, setShowPopupLogin } = useContext(showLogin);
+  const { isAuthenticated, setIsAuthenticated } = useContext(context);
+  const [bookingId, setBookingId] = useState("");
+  const [email, setEmail] = useState("");
+  const [flightId, setFlightId] = useState("");
+
+  const locations = [
+    "Kathmandu",
+    "Pokhara",
+    "Lumbini",
+    "Bhaktapur",
+    "Bharatpur",
+    "Biratnagar",
+    "Janakpur",
+    "Surkhet",
+    "Nepaljung",
+    "Bhadrapur",
+    "Bajhang",
+    "Simara",
+    "Dhangadhi",
+    "Dolpa",
+    "Ramechhap",
+  ];
 
   const handleShowFlight = () => {
     if (!from) return toast.error("Please select a source");
@@ -53,8 +83,6 @@ const Book = () => {
     totalPassenger = adult + child;
   }, [adult, child]);
 
- 
-
   const subtractAdult = (e) => {
     e.preventDefault();
     setadult((prev) => parseInt(prev) - 1);
@@ -87,6 +115,77 @@ const Book = () => {
     setTo(tempFrom);
   };
 
+  const handleManageBooking = async () => {
+    if (!isAuthenticated) {
+      setShowPopupLogin(true);
+    } else {
+      try {
+        const response = await axios.get(`/api/flights/modify`, {
+          params: {
+            bookingId,
+            email,
+          },
+        });
+
+        if (response.data.success) {
+          console.log(bookingId);
+
+          navigate("/modify", {
+            state: {
+              bookingId,
+            },
+          });
+        } else {
+          toast.error(response.data.message);
+        }
+      } catch (error) {
+        toast.error("An error occurred while processing your request.");
+        console.error("Error in handleManageBooking:", error);
+      }
+    }
+  };
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.customDropdown')) {
+        setShowFromDropdown(false);
+        setShowToDropdown(false);
+      }
+      if (!event.target.closest('.passenger')) {
+        setShowPassengerOptions(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleOpenLocationPopup = (type) => {
+    setCurrentSelectionType(type);
+    setShowLocationPopup(true);
+    setSearchQuery("");
+  };
+
+  const handleSelectLocation = (location) => {
+    if (currentSelectionType === "from") {
+      setFrom(location);
+    } else {
+      setTo(location);
+    }
+    setShowLocationPopup(false);
+    setSearchQuery("");
+  };
+
+  const filteredLocations = locations.filter(location =>
+    location.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  let today = new Date().toISOString().split("T")[0];
+  let today1 = new Date();
+
   return (
     <div className="bookBody">
       <div className="container">
@@ -108,24 +207,24 @@ const Book = () => {
         </div>
         <div className="mainBook">
           <div className="fromto">
-            <select value={from} onChange={(e) => setFrom(e.target.value)}>
-              <option value=""> FROM</option>
-              <option value="Kathmandu">Kathmandu</option>
-              <option value="Pokhara">Pokhara</option>
-              <option value="Lumbini">Lumbini</option>
-              <option value="Bhaktapur">Bhaktapur</option>
-            </select>
+            <div
+              className="locationSelector"
+              onClick={() => handleOpenLocationPopup("from")}
+            >
+              <span className="label">FROM</span>
+              <span className="value">{from || "Select Location"}</span>
+            </div>
             <button onClick={handleSwapValue}>
               {" "}
               <LiaExchangeAltSolid />
             </button>
-            <select value={to} onChange={(e) => setTo(e.target.value)}>
-              <option value=""> TO</option>
-              <option value="Kathmandu">Kathmandu</option>
-              <option value="Pokhara">Pokhara</option>
-              <option value="Lumbini">Lumbini</option>
-              <option value="Bhaktapur">Bhaktapur</option>
-            </select>
+            <div
+              className="locationSelector"
+              onClick={() => handleOpenLocationPopup("to")}
+            >
+              <span className="label">TO</span>
+              <span className="value">{to || "Select Location"}</span>
+            </div>
           </div>
           <div className="options">
             <div className="tripType">
@@ -146,6 +245,7 @@ const Book = () => {
                 <input
                   type="date"
                   value={departureDate}
+                  min={today}
                   onChange={(e) => setDepartureDate(e.target.value)}
                 />
               </div>
@@ -231,12 +331,47 @@ const Book = () => {
       </div>
 
       {showPopup && (
-        <div className="popup">
-          <div className="popupContent">
-            <input type="text" placeholder="Booking ID" autoCorrect="flase"/>
-            <input type="text" placeholder="Your Name or Email" />
+        <div className="popup" onClick={() => setShowPopup(false)}>
+          <div className="popupContent" onClick={(e) => e.stopPropagation()}>
+            <input
+              type="text"
+              placeholder="Booking ID"
+              autoCorrect="flase"
+              value={bookingId}
+              onChange={(e) => setBookingId(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder=" Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-            <button>Submit</button>
+            <button onClick={handleManageBooking}>Submit</button>
+          </div>
+        </div>
+      )}
+
+      {showLocationPopup && (
+        <div className="locationPopup" onClick={() => setShowLocationPopup(false)}>
+          <div className="locationPopupContent" onClick={(e) => e.stopPropagation()}>
+            <input
+              type="text"
+              placeholder="Search location"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <div className="locationOptions">
+              {filteredLocations.map((location, index) => (
+                <div
+                  key={index}
+                  className="locationOption"
+                  onClick={() => handleSelectLocation(location)}
+                >
+                  {location}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}

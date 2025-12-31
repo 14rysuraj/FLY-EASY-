@@ -40,7 +40,7 @@ function PopupLogin() {
           
             setShowPopupLogin(false);
 
-            window.location.reload();
+            window.history.goBack();
          
     
         }

@@ -1,55 +1,168 @@
+.hero-booking-wrapper {
+  position: relative;
+  margin-top: 70px;
+  width: 100%;
+  padding-bottom: 180px;
+}
+
 .hero {
-  height: 800px;
-
-  margin-top: 210px;
-  animation: change 60s infinite;
-
+  height: 75vh;
+  min-height: 550px;
+  animation: change 60s infinite ease-in-out;
   background-position: center;
   background-size: cover;
-  > h1 {
-    color: white;
-    width: 50%;
-    margin: 0 9rem;
-    display: flex;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    align-items: center;
-    height: 100%;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 61, 130, 0.8) 0%, rgba(0, 87, 184, 0.7) 100%);
+    z-index: 1;
+  }
 
-    > button {
-      border: none;
-      background-color: red;
-      height: 50px;
-color: white;
-      padding: 0 30px;
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+    max-width: 900px;
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-shadow: 2px 4px 16px rgba(0, 0, 0, 0.4);
+      letter-spacing: 1px;
+      line-height: 1.2;
     }
 
-    &::before {
-      content: "Text for the first image";
-      position: absolute;
-      width: 40%;
-      top: 40%;
-      opacity: 1;
-      font-size: 3rem;
-      animation: textchange 60s infinite;
-     
+    p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.3);
+      letter-spacing: 0.5px;
+      opacity: 0.95;
     }
   }
 }
+
 .bg {
-  height: 200px;
-  background-color: white;
+  height: 80px;
+  background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+}
+
+/* Why Choose Fly Easy Section */
+.why-choose-section {
+  background: linear-gradient(180deg, var(--light-gray) 0%, var(--white) 50%, var(--light-gray) 100%);
+  padding: 80px 20px;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent-red) 0%, var(--secondary-blue) 100%);
+        border-radius: 2px;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: var(--dark-gray);
+      margin-top: 24px;
+      opacity: 0.9;
+    }
+  }
+
+  .stats-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 80px;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 87, 184, 0.3);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+
+    .stat-item {
+      text-align: center;
+      min-width: 180px;
+      position: relative;
+      z-index: 1;
+
+      h3 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 8px;
+        text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: var(--white);
+        font-weight: 500;
+        opacity: 0.95;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
 }
 
 .service {
   display: flex;
-  height: 78vh;
-  justify-content: space-evenly;
+  min-height: 50vh;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: 30px;
+  padding: 40px 20px;
 }
 
 @keyframes change {
-  0% {
+  0%, 100% {
     background-image: url(src/assets/1920x750_ConvenienceFeeWaiver-DomesticBookings.webp);
   }
   20% {
@@ -64,28 +177,162 @@ color: white;
   80% {
     background-image: url(src/assets/1920x750_Business_class.webp);
   }
-  100% {
-    background-image: url(src/assets/1920x750_ConvenienceFeeWaiver-DomesticBookings.webp);
+}
+
+/* Responsive Home */
+@media (max-width: 1200px) {
+  .hero {
+    height: 65vh;
+    min-height: 500px;
+
+    .hero-content {
+      h1 {
+        font-size: 3.2rem;
+      }
+
+      p {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  .why-choose-section {
+    .section-header h2 {
+      font-size: 2.5rem;
+    }
+
+    .stats-section {
+      gap: 30px;
+      padding: 50px 30px;
+
+      .stat-item h3 {
+        font-size: 3rem;
+      }
+    }
   }
 }
 
-@keyframes textchange {
-  0% {
-    content: "ENJOY AN ENHANCED FLYING EXPERIENCE WITH UPGRADE+";
+@media (max-width: 900px) {
+  .hero-booking-wrapper {
+    margin-top: 70px;
   }
-  20% {
-    content: "Fly high, travel far. Your next journey begins here.";
+
+  .hero {
+    height: 55vh;
+    min-height: 450px;
+
+    .hero-content {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
   }
-  40% {
-    content: "FLY PREMIUM ECONOMY AT SPECIAL FARES";
+
+  .service {
+    padding: 40px 16px;
   }
-  60% {
-    content: "Fly to exotic destinations with ease. Book your journey now!";
+
+  .why-choose-section {
+    padding: 60px 20px;
+
+    .section-header {
+      margin-bottom: 40px;
+
+      h2 {
+        font-size: 2.2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .stats-section {
+      margin-top: 60px;
+      padding: 40px 24px;
+      gap: 24px;
+      border-radius: 16px;
+
+      .stat-item {
+        min-width: 140px;
+
+        h3 {
+          font-size: 2.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
   }
-  80% {
-    content: "Discover new horizons. Explore the world. Start your adventure today";
+}
+
+@media (max-width: 480px) {
+  .hero-booking-wrapper {
+    margin-top: 60px;
   }
-  100% {
-    content: "Unlock the skies. Your dream destination awaits. Book now";
+
+  .hero {
+    height: 45vh;
+    min-height: 350px;
+
+    .hero-content {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .bg {
+    height: 100px;
+  }
+
+  .why-choose-section {
+    padding: 40px 16px;
+
+    .section-header {
+      margin-bottom: 32px;
+
+      h2 {
+        font-size: 1.8rem;
+
+        &::after {
+          width: 60px;
+          height: 3px;
+        }
+      }
+
+      p {
+        font-size: 0.95rem;
+        margin-top: 20px;
+      }
+    }
+
+    .stats-section {
+      margin-top: 40px;
+      padding: 32px 20px;
+      gap: 20px;
+
+      .stat-item {
+        min-width: 120px;
+
+        h3 {
+          font-size: 2.2rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+      }
+    }
   }
 }

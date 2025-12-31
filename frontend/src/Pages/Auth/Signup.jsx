@@ -19,6 +19,23 @@ const Signup = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+
+    if (!name) return toast.error("Please enter your name!");
+
+    
+
+
+      if (!phone)
+        return toast.error("Please provide a valid phone number!");
+      if (phone.length !== 10) {
+        return toast.error("Please enter a valid phone number!");
+      }
+
+      if (!email) return toast.error("Please enter your email address!");
+      if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email))
+        return toast.error("Invalid Email Address!");
+      else if (!password || password.length < 8)
+        return toast.error("Password must be at least 8 characters long.");
     const response = await axios.post("/api/user/signup", {
   
       email: email,

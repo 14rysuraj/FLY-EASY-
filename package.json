@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-burger-menu": "^3.0.9",
     "react-time-ago": "^7.3.3"
   }
 }

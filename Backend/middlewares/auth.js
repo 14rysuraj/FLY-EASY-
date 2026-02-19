@@ -1,3 +1,4 @@
+import { Admin } from "../models/admin.js";
 import { User } from "../models/user.js"
 import jwt from "jsonwebtoken";
 
@@ -26,3 +27,20 @@ export const isAuthenticated = async (req, res, next) => {
         });
     }
 }
+
+export const isAdminAuthenticated = async (req, res, next) => {
+
+    const { admintoken } = req.cookies;
+    if (!admintoken) return res.json({
+      success: false,
+      message: "Admin Login First",
+    });
+  
+    const decoded = jwt.verify(admintoken, process.env.JWT_SECRET);
+    req.admin = await Admin.findById(decoded._id);
+  
+    next();
+  
+  
+  
+  }

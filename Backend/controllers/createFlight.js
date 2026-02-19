@@ -8,7 +8,7 @@ export const createFlight = async (req, res) => {
       departureAirport,
       arrivalAirport,
       departureDate,
-      arrivalDate,
+   arrivalDate,
       departureTime,
       arrivalTime,
       price,
@@ -22,7 +22,7 @@ export const createFlight = async (req, res) => {
           flightNumber,
           departureAirport,
         arrivalAirport,
-          departureDate,
+        departureDate,
           arrivalDate,
           departureTime,
           arrivalTime,
@@ -32,8 +32,9 @@ export const createFlight = async (req, res) => {
       
       await newFlight.save();
 
-      res.status(201).json({
+      res.json({
         success: true,
+        message: "Flight created successfully",
         newFlight,
       });
   } catch (error) {
@@ -43,3 +44,4 @@ export const createFlight = async (req, res) => {
     });
   }
 };
+
